@@ -1,27 +1,27 @@
-document.getElementById("leadForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+$(document).ready(function() {
+    $("#leadForm").on("submit", function(event) {
+      event.preventDefault()
   
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const webHook = 'bywgxf1hhq4j76jeg7lejny4ct4gi7cn@hook.eu2.make.com'
-    // Replace with your Make.com webhook URL
-    // const webhookURL = `https://hook.us1.make.com/${webHook}`;
-    const webhookURL = `bywgxf1hhq4j76jeg7lejny4ct4gi7cn@hook.eu2.make.com`
+      const name = $("#name").val();
+      const email = $("#email").val();
+      
+      const webhookURL = "https://hook.eu2.make.com/f76rfii7hrg74r9iovbmoeus4nu2jqmd";
+      
+      $.ajax({
+        url: webhookURL,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({
+             name: name,
+             email: email 
+            }),
+        success: function(data) {
+          console.log("Lead submitted successfully:", data)
 
-  
-    fetch(webhookURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ name, email })
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Lead submitted successfully:", data);
-    })
-    .catch(error => {
-      console.error("Error submitting lead:", error);
+        },
+        error: function(xhr, status, error) {
+          console.error("Error submitting lead:", error)
+        }
+      });
     });
   });
-  
