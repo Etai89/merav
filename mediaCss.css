@@ -101,6 +101,7 @@
         height: 0px;
         position: fixed;
         z-index: 15;
+
         
     }
 
@@ -109,7 +110,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-left: 30px;
+        margin-left: 31px;
+        margin-bottom: 866px;
         gap: 20px;
         
     }
