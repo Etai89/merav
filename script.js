@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-  $('.titles').hide()
   $("#leadForm").on("submit", function (event) {
     event.preventDefault()
 
@@ -33,19 +32,33 @@ $(document).ready(function () {
     });
   });
 
-  $('#navBtn').click(()=>{
-    $('#navBtn').addClass('turnOff')
-    $('.turnOff').hide()
-    $('#form').css('margin-top', '600px')
-    $('.turnIt').show()
-    $('.titles').show()
-    $('.titles').click((event)=>{
+
+  $('#wazeLink').hide()
+  if (window.matchMedia("(max-width: 800px)").matches){
+    $('#qr').hide()
+    $('#wazeLink').show()
+    $('.titles').hide()
+    $('#navBtn').click(() => {
+      $('.titles').toggle()
+      
+      if ($('.titles').is(':visible')){
+        $('#form').css('margin-top', '600px')
+      }else{
+        $('#form').css('margin-top', '260px')
+      }
+      
+      
+  
+    })
+    $('.titles').click((event) => {
+      $('.titles').toggle()
       $('.titles').removeClass('active')
-      $('.titles').hide()
-      $(event.target).toggleClass('active')
+      $('.titles').toggleClass('active')
       $('#form').css('margin-top', '260px')
     })
 
-  })
+  }
+
   
+
 });
