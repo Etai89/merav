@@ -16,6 +16,9 @@
     z-index: 10;
     background-color: white;
 }
+#btnDiv{
+    display: none;
+}
 
 #title {
     display: flex;
@@ -24,6 +27,8 @@
 
 .titles {
     align-content: center;
+    color: black;
+    text-decoration: none;
 }
 
 #logo {
@@ -144,4 +149,3 @@
 #waze{
     box-shadow: 1px 1px 20px rgba(0,0,0, 0.5);
 }
-
