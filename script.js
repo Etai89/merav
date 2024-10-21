@@ -38,6 +38,7 @@ $(document).ready(function () {
     $('#qr').hide()
     $('#wazeLink').show()
     $('.titles').hide()
+    
     $('#navBtn').click(() => {
       $('.titles').toggle()
       
